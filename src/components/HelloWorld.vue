@@ -1,58 +1,79 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-container fill-height>
+    
+    <!-- Jumbotron -->
+    <v-row
+        align="center"
+        justify="center"
+      >
+        <h1 class="text-center display-3 hidden-xs-only">
+          Bienvenue sur Echo'munication
+        </h1>
+        <span class="text-center subheading hidden-xs-only">Le site vise à répertorier des tutoriels sélectionnés pour et par les Développeurs Web en formation à Réalise.</span>
+
+        <h1 class="text-center display-1 hidden-sm-and-up">
+         Bienvenue sur Echo'munication
+        </h1>
+        <span class="text-center subheading hidden-sm-and-up">Le site vise à répertorier des tutoriels sélectionnés pour et par les Développeurs Web en formation à Réalise.</span>
+      </v-row>
+
+            
+    <v-row>
+      <!-- Section de recherche -->
+      <v-col sm="5" offset="1">
+        <v-card>
+            <v-card-title>Recherche de tutoriels</v-card-title>
+              <v-card-subtitle>
+              <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+              >
+                <v-text-field
+                  v-model="name"
+                  label="Je veux apprendre à (faire des formulaires, utiliser Flexbox, ...)"
+                  required
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="email"
+                    label="avec le langage (PHP, JavaScript, CSS, ...)"
+                    required
+                ></v-text-field>
+
+                  <v-btn
+                    :disabled="!valid"
+                    color="primary"
+                    class="mr-4"
+                    @click="validate"
+                  >
+                  <v-icon left>mdi-text-box-search-outline</v-icon>
+                    Lancer la recherche
+                  </v-btn>
+                </v-form>
+          </v-card-subtitle>
+        </v-card>
+      </v-col>
+
+
+      <v-col sm="5">
+        <v-card class="align-stretch">
+            <v-card-title>Ajout de tutoriel</v-card-title>
+            <v-card-subtitle>Vous avez regardé, écouté ou lu un tutoriel de qualité que vous souhaiteriez partager ?</v-card-subtitle>
+              <v-card-actions>
+                <v-btn>
+                  <v-icon left>mdi-plus-circle</v-icon>
+                  Proposer un tutoriel</v-btn>
+              </v-card-actions>
+        </v-card>
+      </v-col>
+
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    name: 'HelloWorld'
   }
-}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
