@@ -1,60 +1,27 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <v-toolbar-title>Echo'Munication</v-toolbar-title>
-      <v-spacer></v-spacer>
-      
-      <!-- Doivent rapidement être remplacés par une boucle -->
-      <v-btn
-        href="#"
-        text
-      >
-        <span class="mr-2">Accueil</span>
-      </v-btn>
-
-      <v-btn
-        href="#"
-        text
-      >
-        <span class="mr-2">Tutoriels</span>
-      </v-btn>
-
-      <v-btn
-        href="#"
-        text
-      >
-        <span class="mr-2">Mes favoris</span>
-      </v-btn>
-
-      <v-btn
-        href="#"
-        text
-      >
-        <span class="mr-2">Se connecter</span>
-      </v-btn>
-
-        <!-- <v-icon>mdi-open-in-new</v-icon> -->
-    </v-app-bar>
+    <AppHeader />
 
     <v-main>
-      <HelloWorld/>
+      <HomePage />
     </v-main>
 
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HomePage from './components/HomePage';
+import AppHeader from './components/layout/AppHeader';
+import AppFooter from './components/layout/AppFooter';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    HomePage,
+    AppHeader,
+    AppFooter,
   },
 
   data: () => ({
